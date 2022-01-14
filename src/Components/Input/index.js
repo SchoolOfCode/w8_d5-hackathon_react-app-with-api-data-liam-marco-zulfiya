@@ -26,12 +26,18 @@ function Input({ updateCurrentMovie, addMovieToHistory }) {
 
   async function handleSubmit(e) {
     e.preventDefault();
+    const titleInput = e.target[0];
+    const yearInput = e.target[1];
+
     const movie = await getMovieData(title, year);
 
     if (movie.Response === "False") return;
     else {
       updateCurrentMovie(movie);
       addMovieToHistory(movie);
+
+      titleInput.value = "";
+      yearInput.value = "";
     }
   }
 

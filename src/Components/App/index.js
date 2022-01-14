@@ -6,7 +6,7 @@ import MovieDisplay from "../MovieDisplay";
 import SearchHistory from "../SearchHistory";
 
 function App() {
-  const [currentMovie, setCurrentMovie] = useState({ Ratings: [] });
+  const [currentMovie, setCurrentMovie] = useState();
   const [movies, setMovies] = useState([]);
 
   function addMovieToHistory(newMovie) {
@@ -30,7 +30,7 @@ function App() {
   return (
     <div className="App">
       <Input updateCurrentMovie={updateCurrentMovie} addMovieToHistory={addMovieToHistory} />
-      <MovieDisplay movie={currentMovie} />
+      {currentMovie ? <MovieDisplay movie={currentMovie} /> : ""}
       <SearchHistory movies={movies} removeMovieFromHistory={removeMovieFromHistory} />
     </div>
   );
