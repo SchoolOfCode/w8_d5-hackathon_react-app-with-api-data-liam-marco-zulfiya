@@ -1,11 +1,11 @@
 import React from "react";
-import ListItem from "../ListItem";
+import HistoryItem from "../HistoryItem";
 
 function SearchHistory({ movies, removeMovieFromHistory }) {
   return (
     <ul id="SearchHistory">
       {movies.map((movie, index) => (
-        <ListItem
+        <HistoryItem
           key={movie.Title}
           index={index}
           movie={movie}

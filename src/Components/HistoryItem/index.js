@@ -1,8 +1,8 @@
 import React from "react";
 
-function ListItem({ movie, index, removeMovieFromHistory }) {
+function HistoryItem({ movie, index, removeMovieFromHistory }) {
   return (
-    <li className="ListItem">
+    <li className="HistoryItem">
       <h6>{movie.Title}</h6>
       <img style={{ width: "50px" }} src={movie.Poster} alt="" />
       <button onClick={() => removeMovieFromHistory(index)}>X</button>
@@ -10,4 +10,4 @@ function ListItem({ movie, index, removeMovieFromHistory }) {
   );
 }
 
-export default ListItem;
+export default HistoryItem;

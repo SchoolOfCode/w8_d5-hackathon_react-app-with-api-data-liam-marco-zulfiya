@@ -9,8 +9,12 @@ function App() {
   const [currentMovie, setCurrentMovie] = useState({ Ratings: [] });
   const [movies, setMovies] = useState([]);
 
-  function addMovieToHistory(movie) {
-    const newList = [...movies, movie];
+  function addMovieToHistory(newMovie) {
+    const duplicates = movies.find(movie => movie.imdbID === newMovie.imdbID);
+
+    if (duplicates) return;
+
+    const newList = [...movies, newMovie];
     setMovies(newList);
   }
 
@@ -25,15 +29,9 @@ function App() {
 
   return (
     <div className="App">
-      <Input
-        updateCurrentMovie={updateCurrentMovie}
-        addMovieToHistory={addMovieToHistory}
-      />
+      <Input updateCurrentMovie={updateCurrentMovie} addMovieToHistory={addMovieToHistory} />
       <MovieDisplay movie={currentMovie} />
-      <SearchHistory
-        movies={movies}
-        removeMovieFromHistory={removeMovieFromHistory}
-      />
+      <SearchHistory movies={movies} removeMovieFromHistory={removeMovieFromHistory} />
     </div>
   );
 }
