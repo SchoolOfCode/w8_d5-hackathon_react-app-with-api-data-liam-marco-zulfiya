@@ -1,5 +1,5 @@
 import { useState } from "react";
-import * as config from "../../../config";
+import * as config from "../../config";
 
 const API_KEY = config.API_KEY;
 
