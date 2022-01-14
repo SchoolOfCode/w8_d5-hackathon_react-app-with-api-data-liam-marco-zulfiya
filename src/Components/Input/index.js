@@ -14,6 +14,12 @@ async function getMovieData(title, year) {
 
 function Input({ updateMovie }) {
   const [title, setTitle] = useState("");
+  const [year, setYear] = useState(0);
+
+  function updateYear(e) {
+    const value = e.target.value;
+    setYear(value);
+  }
 
   function updateTitle(e) {
     const value = e.target.value;
@@ -22,7 +28,7 @@ function Input({ updateMovie }) {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    const movie = await getMovieData(title);
+    const movie = await getMovieData(title, year);
 
     if (movie.Response === "False") return;
     else updateMovie(movie);
@@ -31,6 +37,7 @@ function Input({ updateMovie }) {
   return (
     <form onSubmit={handleSubmit}>
       <input onChange={updateTitle} type="text" />
+      <input onChange={updateYear} type="number" />
       <button className="submit-btn">Submit</button>
     </form>
   );
