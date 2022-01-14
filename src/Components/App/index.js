@@ -1,15 +1,18 @@
 import "./App.css";
-
-const API_KEY = "92452fc4";
-
-async function getMovieData(title, year) {
-  const response = await fetch(`http://www.omdbapi.com/?apikey=${API_KEY}&t=${title}&y=${year}`);
-  const data = await response.json();
-  return data;
-}
+import Input from "../Input";
 
 function App() {
-  return <div className="App"></div>;
+  const [movie, setMovie] = useState({});
+
+  function updateMovie(newMovie) {
+    setMovie(newMovie);
+  }
+
+  return (
+    <div className="App">
+      <Input updateMovie={updateMovie} />
+    </div>
+  );
 }
 
 export default App;
