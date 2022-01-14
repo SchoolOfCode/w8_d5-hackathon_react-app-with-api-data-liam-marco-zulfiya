@@ -1,5 +1,6 @@
 import React from "react";
 import HistoryItem from "../HistoryItem";
+import "./SearchHistory.css";
 
 function SearchHistory({ movies, removeMovieFromHistory }) {
   return (

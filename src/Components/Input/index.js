@@ -44,8 +44,10 @@ function Input({ updateCurrentMovie, addMovieToHistory }) {
 
   return (
     <form className="input-form" onSubmit={handleSubmit}>
-      <input className="title-input" onChange={updateTitle} type="text" />
-      <input className="year-input" onChange={updateYear} type="number" />
+      <div>
+        <input className="title-input" placeholder="Title" onChange={updateTitle} type="text" />
+        <input className="year-input" placeholder="Year" onChange={updateYear} type="number" />
+      </div>
       <button className="submit-btn">Submit</button>
     </form>
   );
