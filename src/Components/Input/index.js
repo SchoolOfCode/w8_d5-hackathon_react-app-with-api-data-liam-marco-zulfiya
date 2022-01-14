@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./input.css";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 
@@ -42,9 +43,9 @@ function Input({ updateCurrentMovie, addMovieToHistory }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input onChange={updateTitle} type="text" />
-      <input onChange={updateYear} type="number" />
+    <form className="input-form" onSubmit={handleSubmit}>
+      <input className="title-input" onChange={updateTitle} type="text" />
+      <input className="year-input" onChange={updateYear} type="number" />
       <button className="submit-btn">Submit</button>
     </form>
   );

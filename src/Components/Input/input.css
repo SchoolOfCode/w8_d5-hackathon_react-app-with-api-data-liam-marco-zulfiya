@@ -1,0 +1,23 @@
+.input-form {
+  margin: 50px;
+}
+
+.title-input,
+.year-input {
+  border: solid 1px #333;
+  border-radius: 10000px;
+  padding-left: 5px;
+}
+
+.year-input {
+  width: 20%;
+}
+
+.submit-btn {
+  width: 80px;
+  height: 30px;
+  background-color: #2f3a8f;
+  color: #f4f4f4;
+  border: none;
+  border-radius: 1000px;
+}
