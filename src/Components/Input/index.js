@@ -1,7 +1,6 @@
 import { useState } from "react";
-import * as config from "../../config";
 
-const API_KEY = config.API_KEY;
+const API_KEY = process.env.REACT_APP_API_KEY;
 
 async function getMovieData(title, year) {
   const response = await fetch(
