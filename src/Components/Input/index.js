@@ -1,6 +1,9 @@
 import { useState } from "react";
+import dotenv from "dotenv";
 
-const API_KEY = "92452fc4";
+dotenv.config();
+
+const API_KEY = process.env.API_KEY;
 
 async function getMovieData(title, year) {
   const response = await fetch(
