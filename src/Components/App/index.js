@@ -3,6 +3,7 @@ import { useState } from "react";
 import "./App.css";
 import Input from "../Input";
 import MovieDisplay from "../MovieDisplay";
+import SearchHistory from "../SearchHistory";
 
 function App() {
   const [currentMovie, setCurrentMovie] = useState({ Ratings: [] });
@@ -24,9 +25,15 @@ function App() {
 
   return (
     <div className="App">
-      <Input updateCurrentMovie={updateCurrentMovie} addMovieToHistory={addMovieToHistory} />
+      <Input
+        updateCurrentMovie={updateCurrentMovie}
+        addMovieToHistory={addMovieToHistory}
+      />
       <MovieDisplay movie={currentMovie} />
-      {/* <SearchHistory movies={movies} /> */}
+      <SearchHistory
+        movies={movies}
+        removeMovieFromHistory={removeMovieFromHistory}
+      />
     </div>
   );
 }
