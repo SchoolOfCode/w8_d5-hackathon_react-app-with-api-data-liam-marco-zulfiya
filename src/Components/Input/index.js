@@ -1,17 +1,19 @@
 import { useState } from "react";
 
+const API_KEY = "92452fc4";
+
+async function getMovieData(title, year) {
+  const response = await fetch(
+    `http://www.omdbapi.com/?apikey=${API_KEY}&t=${title}&y=${year}&type=movie`
+  );
+  const data = await response.json();
+
+  console.log(data);
+  return data;
+}
+
 function Input({ updateMovie }) {
   const [title, setTitle] = useState("");
-
-  const API_KEY = "92452fc4";
-
-  async function getMovieData(title, year) {
-    const response = await fetch(
-      `http://www.omdbapi.com/?apikey=${API_KEY}&t=${title}&y=${year}`
-    );
-    const data = await response.json();
-    return data;
-  }
 
   function updateTitle(e) {
     const value = e.target.value;
@@ -21,7 +23,9 @@ function Input({ updateMovie }) {
   async function handleSubmit(e) {
     e.preventDefault();
     const movie = await getMovieData(title);
-    updateMovie(movie);
+
+    if (movie.Response === "False") return;
+    else updateMovie(movie);
   }
 
   return (
