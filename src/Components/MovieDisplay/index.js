@@ -3,8 +3,6 @@ import React from "react";
 function MovieDisplay({ movie }) {
   const { Title, Year, Genre, Poster, Language, Runtime, Director, Plot, Actors, Ratings } = movie;
 
-  console.log(Ratings);
-
   const IMDb = Ratings[0];
   const RottenTomatoes = Ratings[1];
   const Metacritic = Ratings[2];

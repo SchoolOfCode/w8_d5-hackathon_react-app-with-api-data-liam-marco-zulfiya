@@ -7,14 +7,12 @@ async function getMovieData(title, year) {
     `https://www.omdbapi.com/?apikey=${API_KEY}&t=${title}&y=${year}&type=movie`
   );
   const data = await response.json();
-
-  console.log(data);
   return data;
 }
 
-function Input({ updateMovie }) {
+function Input({ updateCurrentMovie, addMovieToHistory }) {
   const [title, setTitle] = useState("");
-  const [year, setYear] = useState(0);
+  const [year, setYear] = useState();
 
   function updateYear(e) {
     const value = e.target.value;
@@ -31,7 +29,10 @@ function Input({ updateMovie }) {
     const movie = await getMovieData(title, year);
 
     if (movie.Response === "False") return;
-    else updateMovie(movie);
+    else {
+      updateCurrentMovie(movie);
+      addMovieToHistory(movie);
+    }
   }
 
   return (
